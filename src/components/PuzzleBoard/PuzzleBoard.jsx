@@ -43,22 +43,28 @@ class PuzzleBoard extends Component {
       let bRight = (i === 2 || i === 5 || i === 8) ? borderRight : '';
       row1.push(
         <Grid
-          container={false}
+          container={row === 2 && i === 5}
           item
           sm={1}
           id={`${row}${i}`}
           className={`${bTop} ${bLeft} ${bRight} ${bBottom}`}
         >
-          <Paper
-            className={paper}
-            square={true}
-          >
-            2
-          </Paper>
-          {/* { this.FormInnerBoard() } */}
+          {
+            ((row === 2) && (i === 5)) ? (
+              this.FormInnerBoard()
+            ) : (
+              <Paper
+                className={paper}
+                square={true}
+              >
+                2
+              </Paper>
+            )
+          }
         </Grid>
       );
     }
+    console.log(row1);
     return row1;
   }
 
