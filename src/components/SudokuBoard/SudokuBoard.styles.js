@@ -10,6 +10,9 @@ const useStyles = (theme) => ({
     color: theme.palette.text.secondary,
     height: '2em',
   },
+  text: {
+    fontSize: '1.5em',
+  },
   paperInner: {
     padding: theme.spacing(0),
     textAlign: 'center',
@@ -17,7 +20,7 @@ const useStyles = (theme) => ({
     height: '1em',
   },
   innerCellText: {
-    fontSize: '0.5em',
+    fontSize: '0.8em',
   },
   borderTop: {
     borderTop: '3px solid black',
@@ -33,11 +36,11 @@ const useStyles = (theme) => ({
   },
 });
 
-const SudokuBoard = styled.div`
+const Board = styled.div`
   margin: 5px;
 `;
 
 export {
   useStyles,
-  SudokuBoard,
+  Board,
 };
