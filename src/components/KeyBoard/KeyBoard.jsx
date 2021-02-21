@@ -1,12 +1,36 @@
-import React from 'react';
-import {
-    Temp,
-} from './KeyBoard.styles';
+import React, { Component } from 'react';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import { withStyles } from '@material-ui/core';
+import useStyles from './KeyBoard.styles';
 
-const KeyBoard = () => (
-    <Temp>
-        From KeyBoard
-    </Temp>
-);
+class KeyBoard extends Component {
 
-export default KeyBoard;
+    render() {
+        const {
+            classes: {
+                paper,
+                text,
+            }
+        } = this.props;
+        let numPad = [];
+        for(let i=1; i<=9; i++){
+            numPad.push(
+                <Grid item xs={4}>
+                    <Paper className={paper}>
+                        <div className={text}>
+                            {i}
+                        </div>
+                    </Paper>
+                </Grid>
+            )
+        }
+        return (
+            <Grid container>
+                {numPad}
+            </Grid>
+        );
+    }
+}
+
+export default withStyles(useStyles)(KeyBoard);

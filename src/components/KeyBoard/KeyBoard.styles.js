@@ -1,5 +1,13 @@
-import styled from 'styled-components';
+const useStyles = (theme) => ({
+    paper: {
+      padding: theme.spacing(1),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+      height: '3em',
+    },
+    text: {
+        fontSize: '2em',
+    }
+});
 
-export const Temp = styled.div`
-    background: yellow;
-`;
+export default useStyles;

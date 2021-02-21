@@ -1,17 +1,13 @@
 import './App.css';
 import Header from './components/Header/Header';
-import Difficulty from './components/Difficulty/Difficulty';
-import SudokuBoard from './components/SudokuBoard';
-import KeyBoard from './components/KeyBoard/KeyBoard';
+import Body from './components/Body';
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
-      <Difficulty />
-      <SudokuBoard />
-      <KeyBoard />
-    </div>
+      <Body />
+    </>
   );
 }
 

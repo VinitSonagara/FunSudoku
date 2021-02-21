@@ -7,8 +7,8 @@ class SudokuBoard extends Component {
     render() {
         return (
             <Board>
-                <Grid container justify="center">
-                    <Grid container item  sm={8} md={6}>
+                <Grid container justify="flex-end">
+                    <Grid container item sm={10} md={8}>
                         <FormSudokuBoard />
                     </Grid>
                 </Grid>
