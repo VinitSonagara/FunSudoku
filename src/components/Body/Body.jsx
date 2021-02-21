@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Difficulty from '../Difficulty/Difficulty';
 import SudokuBoard from '../SudokuBoard';
-import KeyBoard from '../KeyBoard/KeyBoard';
+import NumPad from '../NumPad';
 import Grid from '@material-ui/core/Grid';
 
 class Body extends Component {
@@ -16,7 +16,7 @@ class Body extends Component {
                         <SudokuBoard />
                     </Grid>
                     <Grid item xs={2}>
-                        <KeyBoard />
+                        <NumPad />
                     </Grid>
                 </Grid>
             </React.Fragment>

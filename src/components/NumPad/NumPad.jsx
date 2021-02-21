@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core';
-import useStyles from './KeyBoard.styles';
+import useStyles from './NumPad.styles';
 
-class KeyBoard extends Component {
+class NumPad extends Component {
 
     render() {
         const {
@@ -33,4 +33,4 @@ class KeyBoard extends Component {
     }
 }
 
-export default withStyles(useStyles)(KeyBoard);
+export default withStyles(useStyles)(NumPad);
