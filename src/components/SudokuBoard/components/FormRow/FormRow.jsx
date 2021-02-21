@@ -44,6 +44,7 @@ class FormRow extends Component {
                     container={row === 10 && i === 12}
                     item
                     sm={1}
+                    key={`${row}${i}`}
                     id={`${row}${i}`}
                     className={`${bTop} ${bLeft} ${bRight} ${bBottom}`}
                 >
@@ -51,7 +52,7 @@ class FormRow extends Component {
                         row === 10 && i === 12 ? (
                             <FormInnerBoard />
                         ) : (
-                            <FormCell 
+                            <FormCell
                                 value={cellValues ? cellValues[i] : ''}
                             />
                         )

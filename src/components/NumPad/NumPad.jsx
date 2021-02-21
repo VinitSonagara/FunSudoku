@@ -16,7 +16,7 @@ class NumPad extends Component {
         let numPad = [];
         for(let i=1; i<=9; i++){
             numPad.push(
-                <Grid item xs={4}>
+                <Grid item xs={4} key={i}>
                     <Paper className={paper}>
                         <div className={text}>
                             {i}

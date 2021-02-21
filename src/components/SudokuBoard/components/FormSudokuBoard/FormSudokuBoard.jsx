@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import FormRow from '../FormRow';
-import axios from 'axios';
+import getCellValues from './FormSudokuBoard.query';
 class FormSudokuBoard extends Component {
 
     constructor(props){
@@ -11,18 +11,11 @@ class FormSudokuBoard extends Component {
         }
     }
 
-    componentDidMount = () => {
-        this.getCellValues();
-    }
-
-    getCellValues = () => {
-        axios.get(`https://sugoku.herokuapp.com/board?difficulty=easy`)
-            .then(data => {
-                const newCellValues = data.data.board;
-                this.setState({
-                    cellValues: newCellValues,
-                });
-            });
+    componentDidMount = async () => {
+        const cellValues = await getCellValues();
+        this.setState({
+            cellValues,
+        });
     }
 
     render() {
