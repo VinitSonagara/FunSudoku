@@ -6,37 +6,53 @@ import FormInnerBoard from '../FormInnerBoard';
 import FormCell from './components/FormCell';
 
 class FormRow extends Component {
+
+    constructor(props) {
+        super(props);
+        const {
+            classes: {
+                borderTop,
+                borderBottom,
+            },
+            row,
+        } = this.props;
+        this.state = {
+            bTop: row === 0 ? borderTop : '',
+            bBottom: (row === 2 || row === 5 || row === 8) ? borderBottom : '',
+        }
+    }
+
     render() {
         let cells = [];
         const {
             classes: {
-                borderTop,
                 borderLeft,
                 borderRight,
-                borderBottom,
             },
             row,
             cellValues,
         } = this.props;
-        let bTop = row === 0 ? borderTop : '';
-        let bBottom = (row === 2 || row === 5 || row === 8) ? borderBottom : ''; 
+        const {
+            bTop,
+            bBottom,
+        } = this.state;
         for(let i=0; i<9; i++){
             let bLeft = i === 0 ? borderLeft : '';
             let bRight = (i === 2 || i === 5 || i === 8) ? borderRight : '';
             cells.push(
                 <Grid
-                    container={row === 2 && i === 5}
+                    container={row === 10 && i === 12}
                     item
                     sm={1}
                     id={`${row}${i}`}
                     className={`${bTop} ${bLeft} ${bRight} ${bBottom}`}
                 >
                     {
-                        row === 2 && i === 5 ? (
+                        row === 10 && i === 12 ? (
                             <FormInnerBoard />
                         ) : (
                             <FormCell 
-                                value={cellValues[i]}
+                                value={cellValues ? cellValues[i] : ''}
                             />
                         )
                     }

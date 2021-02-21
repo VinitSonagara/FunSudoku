@@ -1,31 +1,32 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import FormRow from '../FormRow';
-
+import axios from 'axios';
 class FormSudokuBoard extends Component {
 
     constructor(props){
         super(props);
-        const cellValues = [
-            [1,2,3,4,5,6,7,8,9],
-            [1,2,3,4,5,6,7,8,9],
-            [1,2,3,4,5,6,7,8,9],
-            [1,2,3,4,5,6,7,8,9],
-            [1,2,3,4,5,6,7,8,9],
-            [1,2,3,4,5,6,7,8,9],
-            [1,2,3,4,5,6,7,8,9],
-            [1,2,3,4,5,6,7,8,9],
-            [1,2,3,4,5,6,7,8,9],
-        ];
-        this.state ={
-            cellValues,
+        this.state = {
+            cellValues: [],
         }
     }
 
+    componentDidMount = () => {
+        this.getCellValues();
+    }
+
+    getCellValues = () => {
+        axios.get(`https://sugoku.herokuapp.com/board?difficulty=easy`)
+            .then(data => {
+                const newCellValues = data.data.board;
+                this.setState({
+                    cellValues: newCellValues,
+                });
+            });
+    }
+
     render() {
-        const {
-            cellValues,
-        } = this.state;
+        const { cellValues } = this.state;
         let sudokuBoard = [];
         for(let i=0; i<9;i++){
             sudokuBoard.push(

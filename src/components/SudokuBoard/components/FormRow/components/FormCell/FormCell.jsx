@@ -10,8 +10,18 @@ class FormCell extends Component {
         const {
             value,
         } =this.props;
+        // console.log(value);
         this.state = {
             value,
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        const { value } = this.props;
+        if(value !== prevProps.value){
+            this.setState({
+                value,
+            });
         }
     }
 
@@ -38,7 +48,7 @@ class FormCell extends Component {
                     className={cellText}
                     onClick={this.onClick}
                 >
-                    {value}
+                    {value !== 0 ? value : ''}
                 </div>
         </Paper>
         )
